@@ -12,9 +12,15 @@ def main():
     # Fetch stock data
     stock_data = dd.fetch_stock_data(ticker, period)
 
+    # Запрос у пользователя порога для колебаний
+    threshold = float(input("Введите порог колебания цены в процентах (например, 5 для 5%): "))
+
     # Вычисляем и выводим среднюю цену закрытия акций
     dd.calculate_and_display_average_price(stock_data)
 
+    # Уведомление о сильных колебаниях
+    dd.notify_if_strong_fluctuations(stock_data, threshold) 
+    
     # Add moving average to the data
     stock_data = dd.add_moving_average(stock_data)
 
