@@ -13,9 +13,9 @@ data_plotting.py
 1. Функция: create_and_save_plot(data, ticker, period, filename=None)
 расчитывает и строит график, отображает на экране и сохраняет в файле.
 
-![img.png](img.png)
+[MSFT_1y_00_56_22_10_2024.csv](MSFT_1y_00_56_22_10_2024.csv)
 
-[AAPL_1mo_22_18_18_10_2024.csv](AAPL_1mo_22_18_18_10_2024.csv)
+![MSFT_1y_stock_price_chart.png](MSFT_1y_stock_price_chart.png)
  
 data_download.py
 
@@ -72,4 +72,18 @@ data (DataFrame): DataFrame, содержащий данные акций с колонкой 'Close'.
 ticker (str): Тикер акций, для которых необходимо получить данные.
 period (str): Временной период для данных (например, '1d', '5d', '1mo' и т.д.).
  
+
+6. Функция def calculate_rsi(data, window=14) 
+  """Calculate Relative Strength Index (RSI)"""
+Расчет Relative Strength Index 
+
+Параметры:
+data (DataFrame): DataFrame, содержащий данные акций с колонкой 'Close'
+
+7. Функция def calculate_macd(data)
+  """Calculate MACD"""
+Расчет MACD
+
+Параметры:
+data (DataFrame): DataFrame, содержащий данные акций с колонкой 'Close'
 
