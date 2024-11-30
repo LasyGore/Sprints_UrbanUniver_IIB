@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Advertisements</h1>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'board:add_advertisement' %}"><button>Add Advertisement</button></a>
+    <h2>Your Advertisements:</h2>
+    <ul>
+        {% for advertisement in advertisements %}
+            {% if advertisement.author == user %}
+                <li>
+                    <a href="{% url 'board:advertisement_detail' pk=advertisement.pk %}">{{ advertisement.title }}</a>
+                    <a href="{% url 'board:edit_advertisement' pk=advertisement.pk %}">Edit</a>  <!-- Ссылка на редактирование -->
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+    {% for advertisement in advertisements %}
+        {% if advertisement.author != user %}
+            <li>
+                <a href="{% url 'board:advertisement_detail' pk=advertisement.pk %}">{{ advertisement.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
